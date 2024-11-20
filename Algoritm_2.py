@@ -2,12 +2,12 @@
 a = input()
 chislo = ''
 p1 = 0
-for i in set(a):
+for w in set(a): #Сначала w примет значение одной переменной и сравнит ее с другими, потом станет другими переменными, при этом каждая переменная будет встречаться только один раз
     p2 = 0
-    for j in range(len(a)):
-        if i == a[j]:
+    for j in range(len(a)): 
+        if w == a[j]:
             p2 += 1
     if p1 < p2:
         p1 = p2
-        chislo = i
+        chislo = w
 print(chislo)

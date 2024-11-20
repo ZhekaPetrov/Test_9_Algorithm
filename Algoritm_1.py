@@ -11,3 +11,5 @@ for i in range(len(a)):
         p1 = p2
         simvol = a[i]
 print(simvol) 
+
+
