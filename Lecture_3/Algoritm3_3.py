@@ -1,18 +1,19 @@
 #Дана последовательность положительных чисел длинной N и число X.
 #Нужно найти два различных числа А и В из последовательности, таких что А + В = Х или вернуть пару 0, 0, если такой пары чисел нет
-#       Решение O(N^2)
+#       Решение O(N)
 def twotermswithsumx(nums, x):
-    for i in range(len(nums)):
-        for j in range(i + 1, len(nums)):
-            if nums[i] + nums[j] == x:
-                return nums[i], nums[j]
+    prevnums = set()
+    for nownum in nums:
+        if x - nownum in prevnums:
+            return nownum, x - nownum
+        prevnums.add(nownum)
     return 0, 0
 
 
-a = twotermswithsumx([1, 2, 3, 4, 5, 6], 10)
+a = twotermswithsumx([1, 2, 3, 4, 5, 6], 11)
 print(a)
-#Выводит (4, 6)
+#Выведет (6, 5)
 
-b = twotermswithsumx([1, 2, 3, 4, 5, 6], 13)
+b = twotermswithsumx([1, 2, 3, 4, 5, 6], 18)
 print(b)
-#Выводит (0, 0)
+#Выведет (0, 0)
